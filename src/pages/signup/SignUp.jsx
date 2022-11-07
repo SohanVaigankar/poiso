@@ -38,12 +38,12 @@ const SignUp = () => {
       });
 
       // redirecting to dashboard if user is authenticated
-      authenticated ? navigate("/dashboard") : "";
+       authenticated ? navigate("/dashboard") : "";
     },
   });
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="form-container">
         <form onSubmit={formik.handleSubmit}>
           <label htmlFor="firstName">First Name</label>

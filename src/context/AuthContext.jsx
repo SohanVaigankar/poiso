@@ -20,7 +20,7 @@ export const AuthContextProvider = ({ children }) => {
 
   // state to store/retrieve authdata to/from localstorage
   const [sessionInfo, setSessionInfo] = useState(authData);
-  console.log(sessionInfo);
+  // console.log(sessionInfo);
 
   // hook to load data from localstorage when page reloads
   useEffect(() => {

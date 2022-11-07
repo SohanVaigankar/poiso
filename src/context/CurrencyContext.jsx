@@ -4,16 +4,26 @@ import { createContext, useReducer } from "react";
 import { CurrencyReducer } from "./CurrencyReducer";
 
 // initialState
-const initialState = {};
+const initialState = {
+  isSymbolsDataLoaded: false,
+  symbolsData: {},
+  baseCurrency: "USD",
+};
 
 export const CurrencyContext = createContext(initialState);
 
 export const CurrencyContextProvider = ({ children }) => {
   // reducer
   const [state, dispatch] = useReducer(CurrencyReducer, initialState);
+  const values = {
+    isSymbolsDataLoaded: state.isSymbolsDataLoaded,
+    symbolsData: state.symbolsData,
+    baseCurrency: state.baseCurrency,
+    dispatch,
+  };
   return (
-    <CurrencyContextProvider value={{ state, dispatch }}>
+    <CurrencyContext.Provider value={values}>
       {children}
-    </CurrencyContextProvider>
+    </CurrencyContext.Provider>
   );
 };
