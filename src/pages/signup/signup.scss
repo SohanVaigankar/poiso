@@ -33,6 +33,7 @@
             padding: 0.4rem;
             font-size: 1.3rem;
             color: whitesmoke;
+            
 
 
 
@@ -42,6 +43,10 @@
                 background-color: rgba(255, 127, 80, 0.422);
             }
 
+            &:-webkit-autofill{
+                -webkit-box-shadow: 0 0 0 1000px  #0a2328 inset !important;
+                -webkit-text-fill-color: whitesmoke !important;
+            }
             
         }
 

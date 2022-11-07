@@ -1,5 +1,27 @@
 const api = "https://poiso-backend.vercel.app";
 
+// funtion to get day
+const getCurrentDate = () => {
+  const date = new Date().getDate() -1;
+  return date < 10 ? `0${date}` : date;
+};
+
+// funtion to get month
+const getCurrentMonth = () => {
+  const month = new Date().getMonth() + 1;
+  return month < 10 ? `0${month}` : month;
+};
+
+// funtion to get month
+const getCurrentYear = new Date().getFullYear();
+
+const lastYearDate = `${
+  getCurrentYear - 1
+}-${getCurrentMonth()}-${getCurrentDate()}`;
+const currentYearDate = `${getCurrentYear}-${getCurrentMonth()}-${getCurrentDate()}`;
+
+
+
 // fn to get list of currency symbols
 export const currencySymbols = () => {
   const path = `${api}/symbols`;
@@ -21,21 +43,17 @@ export const convertCurrency = (fcurr, tcurr) => {
 // fn to get performance data of multiple currencies against base currency
 export const comparePerformance = (
   baseCurrency,
-  currencyList,
-  startDate,
-  endDate
+  currencyList
 ) => {
-  const path = `${api}/compare-performance/from=${startDate}&to=${endDate}&base=${baseCurrency}&currencies=${currencyList}`;
+  const path = `${api}/compare-performance/from=${lastYearDate}&to=${currentYearDate}&base=${baseCurrency}&currencies=${currencyList}`;
   return path;
 };
 
 // fn to get individual performance data
 export const currencyPerformance = (
   baseCurrency,
-  againstCurrency,
-  startDate,
-  endDate
+  againstCurrency
 ) => {
-  const path = `${api}/performance/from=${startDate}&to=${endDate}&base=${baseCurrency}&against=${againstCurrency}`;
+  const path = `${api}/performance/from=${lastYearDate}&to=${currentYearDate}&base=${baseCurrency}&against=${againstCurrency}`;
   return path;
 };

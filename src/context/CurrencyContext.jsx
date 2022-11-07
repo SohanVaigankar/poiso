@@ -8,6 +8,9 @@ const initialState = {
   isSymbolsDataLoaded: false,
   symbolsData: {},
   baseCurrency: "USD",
+  startDatePerformance: "",
+  endDatePerformance: "",
+  performanceDetails: {},
 };
 
 export const CurrencyContext = createContext(initialState);
@@ -19,6 +22,9 @@ export const CurrencyContextProvider = ({ children }) => {
     isSymbolsDataLoaded: state.isSymbolsDataLoaded,
     symbolsData: state.symbolsData,
     baseCurrency: state.baseCurrency,
+    startDatePerformance: state.startDatePerformance,
+    endDatePerformance: state.endDatePerformance,
+    performanceDetails: state.performanceDetails,
     dispatch,
   };
   return (

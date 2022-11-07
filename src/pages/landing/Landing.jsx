@@ -24,7 +24,7 @@ const Landing = () => {
       <div className="hero-section">
         <h1 className="hero-title">poiso</h1>
         <p className="hero-description">
-          serving freshly brewed updates in the currency markets
+          serving freshly brewed updates from the currency markets
         </p>
         <button className="hero-btn" onClick={handleOnClick}>
           peek-a-boo?

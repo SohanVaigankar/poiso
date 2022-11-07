@@ -20,7 +20,12 @@ export const CurrencyReducer = (state, action) => {
     case GET_CMP:
       return { ...state };
     case COMPARE_CURRENCIES:
-      return { ...state };
+      return {
+        ...state,
+        startDate: action.payload.startDate,
+        endDate: action.payload.endDate,
+        performanceDetails: action.payload.performanceDetails,
+      };
     case CONVERT_CURRENCIES:
       return { ...state };
     case CURRENCY_PERFORMANCE:
