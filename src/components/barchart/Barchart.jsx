@@ -2,14 +2,12 @@ import React, { useContext, useEffect } from "react";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
   ReferenceLine,
-  ResponsiveContainer,
 } from "recharts";
 
 import { comparePerformance } from "../../utils/apiURL";
@@ -36,22 +34,12 @@ const loadPastPerformance = async (dispatch, baseCurrency, currencyList) => {
 };
 
 const Barchart = () => {
-  const {
-    dispatch,
-    baseCurrency,
-    performanceDetails,
-    startDatePerformance,
-    endDatePerformance,
-  } = useContext(CurrencyContext);
+  const { dispatch, baseCurrency, performanceDetails } =
+    useContext(CurrencyContext);
 
   useEffect(() => {
     loadPastPerformance(dispatch, baseCurrency, `USD,CAD,CNY,EUR,JPY`);
   }, [baseCurrency]);
-
-  console.log("baseCurrency:" + baseCurrency);
-  console.log("startDatePerformance:" + startDatePerformance);
-  console.log("endDatePerformance:" + endDatePerformance);
-  console.log(performanceDetails);
 
   const data = [];
 
@@ -63,9 +51,6 @@ const Barchart = () => {
       percentage: (performanceDetails[symbol].change_pct * 100).toFixed(2),
     });
   }
-
-  console.log("data");
-  console.log(data);
 
   return (
     <BarChart
