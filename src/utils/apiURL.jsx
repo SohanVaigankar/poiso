@@ -15,10 +15,10 @@ const getCurrentMonth = () => {
 // funtion to get month
 const getCurrentYear = new Date().getFullYear();
 
-const lastYearDate = `${
+export const lastYearDate = `${
   getCurrentYear - 1
 }-${getCurrentMonth()}-${getCurrentDate()}`;
-const currentYearDate = `${getCurrentYear}-${getCurrentMonth()}-${getCurrentDate()}`;
+export const currentYearDate = `${getCurrentYear}-${getCurrentMonth()}-${getCurrentDate()}`;
 
 
 

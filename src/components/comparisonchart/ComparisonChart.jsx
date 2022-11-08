@@ -33,7 +33,7 @@ const loadPastPerformance = async (dispatch, baseCurrency, currencyList) => {
   }
 };
 
-const Barchart = () => {
+const ComparisonChart = () => {
   const { dispatch, baseCurrency, performanceDetails } =
     useContext(CurrencyContext);
 
@@ -49,6 +49,12 @@ const Barchart = () => {
       start: performanceDetails[symbol].start_rate,
       end: performanceDetails[symbol].end_rate,
       percentage: (performanceDetails[symbol].change_pct * 100).toFixed(2),
+      fill:
+        (performanceDetails[symbol].change_pct * 100).toFixed(2) < 0
+          ? "#ea1940"
+          : (performanceDetails[symbol].change_pct * 100).toFixed(2) > 0
+          ? "#2cb71d"
+          : "#dddddd",
     });
   }
 
@@ -70,9 +76,9 @@ const Barchart = () => {
       <Tooltip />
       <Legend />
       <ReferenceLine y={0} stroke="#000" />
-      <Bar dataKey="percentage" fill="#8884d8" />
+      <Bar dataKey="percentage" fill={data.fill} />
     </BarChart>
   );
 };
 
-export default Barchart;
+export default ComparisonChart;

@@ -3,16 +3,16 @@ import "./dashboard.scss";
 import { useNavigate } from "react-router-dom";
 
 // materialUI
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Unstable_Grid2";
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
-  textAlign: 'center',
+  textAlign: "center",
   color: theme.palette.text.secondary,
 }));
 
@@ -21,7 +21,8 @@ import { AuthContext } from "../../context/AuthContext";
 
 // components
 import Navbar from "../../components/navbar/Navbar";
-import Barchart from "../../components/barchart/Barchart";
+import ComparisonChart from "../../components/comparisonchart/ComparisonChart";
+import PerformanceChart from "../../components/performancechart/PerformanceChart";
 
 // currency data
 import { currencyCMP } from "../../utils/apiURL";
@@ -31,22 +32,26 @@ const Dashboard = () => {
     <div>
       <Navbar />
       <div className="dashboard-container">
-      <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid xs={5} className="bar-chart">
-          <Item><Barchart/></Item>
-        </Grid>
-        <Grid xs={4}>
-          <Item>xs=4</Item>
-        </Grid>
-        <Grid xs={4}>
-          <Item>xs=4</Item>
-        </Grid>
-        <Grid xs={8}>
-          <Item>xs=8</Item>
-        </Grid>
-      </Grid>
-    </Box>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={2}>
+            <Grid xs={4}>
+              <Item>xs=4</Item>
+            </Grid>
+            <Grid xs={4}>
+              <Item>xs=4</Item>
+            </Grid>
+            <Grid xs={6} className="bar-chart">
+              <Item>
+                <ComparisonChart />
+              </Item>
+            </Grid>
+            <Grid xs={6}>
+              <Item>
+                <PerformanceChart />
+              </Item>
+            </Grid>
+          </Grid>
+        </Box>
       </div>
     </div>
   );

@@ -29,7 +29,14 @@ export const CurrencyReducer = (state, action) => {
     case CONVERT_CURRENCIES:
       return { ...state };
     case CURRENCY_PERFORMANCE:
-      return { ...state };
+      return {
+        ...state,
+        historyTrend : action.payload.historyTrend,
+        historyAgainstCurrency: action.payload.historyAgainstCurrency,
+        historyStartDate: action.payload.historyStartDate,
+        historyEndDate: action.payload.historyEndDate,
+        historyDetails: action.payload.historyDetails,
+      };
     default:
       return { ...state };
   }
