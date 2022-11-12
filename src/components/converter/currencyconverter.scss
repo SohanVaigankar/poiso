@@ -1,0 +1,12 @@
+.currency-converter-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    .converter{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

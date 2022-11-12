@@ -23,9 +23,7 @@ import { AuthContext } from "../../context/AuthContext";
 import Navbar from "../../components/navbar/Navbar";
 import ComparisonChart from "../../components/comparisonchart/ComparisonChart";
 import PerformanceChart from "../../components/performancechart/PerformanceChart";
-
-// currency data
-import { currencyCMP } from "../../utils/apiURL";
+import CurrencyConverter from "../../components/converter/CurrencyConverter";
 
 const Dashboard = () => {
   return (
@@ -37,8 +35,10 @@ const Dashboard = () => {
             <Grid xs={4}>
               <Item>xs=4</Item>
             </Grid>
-            <Grid xs={4}>
-              <Item>xs=4</Item>
+            <Grid xs={5}>
+              <Item>
+                <CurrencyConverter />
+              </Item>
             </Grid>
             <Grid xs={6} className="bar-chart">
               <Item>
