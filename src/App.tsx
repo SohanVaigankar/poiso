@@ -1,5 +1,5 @@
 // components
-// import { Home } from "./pages";
+import { Home } from "./pages";
 // images & icons
 import logo from "./assets/images/brand/poisologo.svg";
 // styles
@@ -10,7 +10,7 @@ const App = () => {
     <>
       <img src={logo} alt="poiso" />
 
-      {/* <Home /> */}
+      <Home />
     </>
   );
 };
